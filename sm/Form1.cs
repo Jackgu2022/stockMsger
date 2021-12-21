@@ -22,6 +22,10 @@ namespace sm
         public static bool stop_flag = true;
         public static bool sql_locked = false;
         public static bool timer_started = false;
+        private bool is_holiday = false;
+        private static string total_sz = "0";
+        private static string change_sz = "0";
+        private static string change_rate = "0";
         private Icon myicon = Properties.Resources.bird;
         private static Stream  sound = Properties.Resources.alert;
         private static SoundPlayer player = new SoundPlayer(sound);
@@ -29,7 +33,7 @@ namespace sm
         private bool _status = true;
         static string db_dir = AppDomain.CurrentDomain.BaseDirectory + "\\db";
         static string db_path = AppDomain.CurrentDomain.BaseDirectory + "\\db\\code.db";
-        //public Thread[] ths ;
+        private Form2 f2;
         public static SQLiteConnection cn;
         public static string[] sz_prefix_list = new string[] { "00","200","300"};
         public static string[] sh_prefix_list = new string[] { "60", "900" };
@@ -81,7 +85,38 @@ namespace sm
         
         private void MForm_Load(object sender, EventArgs e)
         {
-            
+            //判断是否是节假日
+            String today = DateTime.Now.Date.ToString("yyyy-MM-dd");
+            string url = "https://timor.tech/api/holiday/info/" + today;
+           
+            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(url);
+            req.Method = "GET";
+            try
+            {
+                WebResponse wr = (HttpWebResponse)req.GetResponse();
+                Stream getStream = wr.GetResponseStream();
+                StreamReader streamreader = new StreamReader(getStream);
+                String result = streamreader.ReadToEnd();
+                JObject o = JObject.Parse(result);
+                //Console.WriteLine(result);
+                int rtn_data = (int)o["type"]["type"];
+                if (rtn_data > 0) 
+                { 
+                    is_holiday = true; 
+                }
+               
+
+            }
+            catch (Exception a)
+            {
+                Console.WriteLine(a.ToString());
+                
+
+
+            }
+            //启动上证监控线程
+            Thread sz1 = new Thread(new ThreadStart(QuerySZ));
+            sz1.Start();
             statusStrip.BackColor = Color.LightGray;
             dt.Columns.Add("StockNum", typeof(String));
             dt.Columns.Add("TodayLow", typeof(Decimal));
@@ -93,6 +128,7 @@ namespace sm
             dt.Columns.Add("UpTime", typeof(String));
             dt.PrimaryKey = new DataColumn[] { dt.Columns["StockNum"] };
             dgV.AutoGenerateColumns = false;
+            
             if (!Directory.Exists(db_dir))
             {
                 Directory.CreateDirectory(db_dir);
@@ -104,31 +140,8 @@ namespace sm
 
                 cmd.ExecuteNonQuery();
                 //创建历史记录表
-                /*
-                 string current_buy1_hand_qty  = tmp.Split(',')[10]; //买1入手数
-                        string current_buy2_hand_qty = tmp.Split(',')[12]; //买2入手数
-                        string current_buy3_hand_qty = tmp.Split(',')[14]; //买3入手数
-                        string current_buy4_hand_qty = tmp.Split(',')[16]; //买4入手数
-                        string current_buy5_hand_qty = tmp.Split(',')[18]; //买5入手数
-                        string current_sale1_hand_qty = tmp.Split(',')[20]; //卖1出手数
-                        string current_sale2_hand_qty = tmp.Split(',')[22]; //卖2出手数
-                        string current_sale3_hand_qty = tmp.Split(',')[24]; //卖3出手数
-                        string current_sale4_hand_qty = tmp.Split(',')[26]; //卖4出手数
-                        string current_sale5_hand_qty = tmp.Split(',')[28]; //卖5出手数
-                        string current_buy1_price =tmp.Split(',')[11]; //买1价
-                        string current_buy2_price = tmp.Split(',')[13]; //买2价
-                        string current_buy3_price = tmp.Split(',')[15]; //买3价
-                        string current_buy4_price = tmp.Split(',')[17]; //买4价
-                        string current_buy5_price = tmp.Split(',')[19]; //买5价
-                        string current_sale1_price = tmp.Split(',')[21]; //卖1价
-                        string current_sale2_price = tmp.Split(',')[23]; //卖2价
-                        string current_sale3_price = tmp.Split(',')[25]; //卖3价
-                        string current_sale4_price = tmp.Split(',')[27]; //卖4价
-                        string current_sale5_price = tmp.Split(',')[29]; //卖5价
-                        string total_trades_qty = tmp.Split(',')[20]; //当天交易总量
-                        string total_trades_price = tmp.Split(',')[20]; //当天交易总金额
-                 */
-                cmd.CommandText = "Create table history(id integer PRIMARY KEY autoincrement,code varchar(6),sale1_price DECIMAL(10,5),sale2_price DECIMAL(10,5),sale3_price DECIMAL(10,5),sale4_price DECIMAL(10,5),sale5_price DECIMAL(10,5),buy1_price DECIMAL(10,5),buy2_price DECIMAL(10,5),buy3_price DECIMAL(10,5),buy4_price DECIMAL(10,5),buy5_price DECIMAL(10,5),sale1_hands integer,sale2_hands integer,sale3_hands integer,sale4_hands integer,sale5_hands integer,buy1_hands integer,buy2_hands integer,buy3_hands integer,buy4_hands integer,buy5_hands integer,today_total_qty integer,today_total_price integer,acdt TIMESTAMP default CURRENT_TIMESTAMP)";
+                
+                cmd.CommandText = "Create table history(id integer PRIMARY KEY autoincrement,code varchar(6),sale1_price DECIMAL(10,5),sale2_price DECIMAL(10,5),sale3_price DECIMAL(10,5),sale4_price DECIMAL(10,5),sale5_price DECIMAL(10,5),buy1_price DECIMAL(10,5),buy2_price DECIMAL(10,5),buy3_price DECIMAL(10,5),buy4_price DECIMAL(10,5),buy5_price DECIMAL(10,5),sale1_hands integer,sale2_hands integer,sale3_hands integer,sale4_hands integer,sale5_hands integer,buy1_hands integer,buy2_hands integer,buy3_hands integer,buy4_hands integer,buy5_hands integer,today_total_qty integer,today_total_price integer,acdt TIMESTAMP default  (datetime('now','localtime')))";
                 //cmd.CommandText = "insert into my_code(code,type,current_price,low_limit,upper_limit,code_name) values(601919,'sh',17.60,16.80,18.80,'中海控')";
                 cmd.ExecuteNonQuery();
                 Thread.Sleep(100);
@@ -196,11 +209,7 @@ namespace sm
                     cn.Open();
                     SQLiteCommand cmd = new SQLiteCommand();
                     cmd.Connection = cn;
-                    //cmd.CommandText = "CREATE TABLE my_code(code int primary key,type varchar(4),current_price DECIMAL(10,5),low_limit DECIMAL(10,5),upper_limit DECIMAL(10,5),code_name varchar(64))";
-
-                    //cmd.ExecuteNonQuery();
-                    //cmd.CommandText = "insert into my_code(code,type,current_price,low_limit,upper_limit,code_name) values(601919,'sh',17.60,16.80,18.80,'中海控')";
-                    //cmd.ExecuteNonQuery();
+                    
                     cmd.CommandText = "SELECT code FROM my_code where code = '" + code + "'";
                     SQLiteDataReader sr = cmd.ExecuteReader();
                     if (sr.HasRows)
@@ -303,6 +312,48 @@ namespace sm
             lowerText.Text = dgV.Rows[e.RowIndex].Cells["lowLimit"].Value.ToString();
             upperText.Text = dgV.Rows[e.RowIndex].Cells["UpperLimit"].Value.ToString();
         }
+        //获取上证指数
+        public static void QuerySZ()
+        {
+
+            
+            string url = "http://hq.sinajs.cn/list=s_sh000001";
+           
+            while (true)
+            {
+                
+                   
+                    HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(url);
+                    req.Method = "GET";
+                    try
+                    {
+                        WebResponse wr = (HttpWebResponse)req.GetResponse();
+                        Stream getStream = wr.GetResponseStream();
+                        StreamReader streamreader = new StreamReader(getStream);
+                        String result = streamreader.ReadToEnd();
+                        Console.WriteLine(result);
+                        string tmp = result.Split('"')[1];
+                        Console.WriteLine(tmp);
+                        total_sz = tmp.Split(',')[1]; //指数
+                        change_sz = tmp.Split(',')[2]; //变化指数
+                        change_rate = tmp.Split(',')[3]; //变化率
+                        
+                        
+
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.ToString());
+                    }
+
+                
+                Console.WriteLine("sleep 20 seconds");
+                Thread.Sleep(20000);
+
+
+            }
+        }
+        //获取个股数据
         public static void QueryAPI(object o)
         {
            
@@ -471,6 +522,7 @@ namespace sm
             //dgV数据更新触发事件
             //dgV.Rows[0].DefaultCellStyle.BackColor = Color.Red;
             //遍历dt数据
+            szLabel.Text = total_sz + "  " + change_sz + "  " + change_rate;
             if (e.ListChangedType == ListChangedType.ItemDeleted) {
                 return;
             }
@@ -487,12 +539,12 @@ namespace sm
                 Console.WriteLine(up);
                 if (current >= up)
                 {
-                    dgV.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    dgV.Rows[i].DefaultCellStyle.BackColor = Color.LightPink;
                     if_blink = true;
                 }
                 else if (current <= low)
                 {
-                    dgV.Rows[i].DefaultCellStyle.BackColor = Color.Green;
+                    dgV.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
                     if_blink = true;
                 }
                 else
@@ -503,14 +555,17 @@ namespace sm
             }
             
             dgV.ClearSelection();
-            if (if_blink && !timer_started )
+            if (if_blink )
+            //if (if_blink && !timer_started )  #timer异常停止问题 未找到root cause
             {
                 timer1.Start();
-                timer_started = true;
+                //timer_started = true;
             }
-            else if (!if_blink && timer_started) {
+            else if (!if_blink )
+            //else if (!if_blink && timer_started)
+            {
                 timer1.Stop();
-                timer_started = false;
+                //timer_started = false;
             }
             
 
@@ -539,18 +594,7 @@ namespace sm
 
         private void checkStatusTimer_Tick(object sender, EventArgs e)
         {
-            /*if (stop_flag)
-            {
-                statusStrip.BackColor = Color.LightGray;
-                statusLabel.Text = "已停止";
-            }
-            else {
-                statusStrip.BackColor = Color.CadetBlue;
-                statusLabel.Text = "监控中";
-            }*/
-            //判断时间是否超过下午3点 停止监控
-            //Console.WriteLine(Convert.ToInt16(DateTime.Now.DayOfWeek));
-            //判断今日是否为节假日
+           
             
 
 
@@ -558,28 +602,9 @@ namespace sm
             {
                 DateTime currentTime = DateTime.Now;
                 int hours = currentTime.Hour;
+                int minutes = currentTime.Minute;
                 //int weekday = Convert.ToInt16(DateTime.Now.DayOfWeek);
-                String today = DateTime.Now.Date.ToString("yyyy-MM-dd");
-                string url = "https://timor.tech/api/holiday/info/" + today;
-                int is_holiday = 0;
-                HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(url);
-                req.Method = "GET";
-                try
-                {
-                    WebResponse wr = (HttpWebResponse)req.GetResponse();
-                    Stream getStream = wr.GetResponseStream();
-                    StreamReader streamreader = new StreamReader(getStream);
-                    String result = streamreader.ReadToEnd();
-                    JObject o = JObject.Parse(result);
-                    //Console.WriteLine(result);
-                    is_holiday = (int)o["type"]["type"];
-                    Console.WriteLine(is_holiday);
-
-                } catch(Exception a) {
-                    Console.WriteLine(a.ToString());
-
-
-                }
+               
                 if (hours >= 15 )
                 {  //停止运行
                     Console.WriteLine("已到下午15点，自动停止监控");
@@ -588,7 +613,7 @@ namespace sm
                     statusStrip.BackColor = Color.LightGray;
                     statusLabel.Text = "已停止";
                 }
-                else if (hours >= 9 && hours <15 && is_holiday==0) {
+                else if (hours >= 9  && minutes >=15 && !is_holiday) {
                     if (stop_flag) {
                         //自动启动后台
                         stop_flag = false;
@@ -618,6 +643,20 @@ namespace sm
             }
 
 
+        }
+
+        private void QueryBtn_Click(object sender, EventArgs e)
+        {
+
+            
+                f2 = new Form2();
+                f2.Show();
+            
+           
+           
+           
+            
+            
         }
     }
 }

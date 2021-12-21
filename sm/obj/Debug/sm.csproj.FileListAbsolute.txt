@@ -53,3 +53,8 @@ G:\sm\sm\sm\bin\Debug\GW2NET.Newtonsoft.dll
 G:\sm\sm\sm\bin\Debug\Newtonsoft.Json.dll
 G:\sm\sm\sm\bin\Debug\GW2NET.Newtonsoft.xml
 G:\sm\sm\sm\bin\Debug\Newtonsoft.Json.xml
+G:\sm\sm\sm\obj\Debug\sm.Form2.resources
+G:\sm\sm\sm\bin\Debug\WebKitBrowser.dll
+G:\sm\sm\sm\bin\Debug\WebKit.Interop.dll
+G:\sm\sm\sm\bin\Debug\stdole.dll
+G:\sm\sm\sm\obj\Debug\sm.forumForm.resources

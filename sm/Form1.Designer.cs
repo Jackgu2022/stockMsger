@@ -61,6 +61,8 @@ namespace sm
             this.startBtn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.checkStatusTimer = new System.Windows.Forms.Timer(this.components);
+            this.QueryBtn = new System.Windows.Forms.Button();
+            this.szLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgV)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -281,7 +283,8 @@ namespace sm
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
+            this.toolStripStatusLabel1,
+            this.szLabel});
             this.statusStrip.Location = new System.Drawing.Point(0, 239);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(525, 22);
@@ -291,8 +294,8 @@ namespace sm
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(32, 17);
-            this.toolStripStatusLabel1.Text = "状态";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(35, 17);
+            this.toolStripStatusLabel1.Text = "状态:";
             // 
             // statusLabel
             // 
@@ -308,7 +311,7 @@ namespace sm
             // stopBtn
             // 
             this.stopBtn.BackColor = System.Drawing.Color.Gray;
-            this.stopBtn.Location = new System.Drawing.Point(102, 216);
+            this.stopBtn.Location = new System.Drawing.Point(74, 216);
             this.stopBtn.Name = "stopBtn";
             this.stopBtn.Size = new System.Drawing.Size(75, 23);
             this.stopBtn.TabIndex = 5;
@@ -319,7 +322,7 @@ namespace sm
             // startBtn
             // 
             this.startBtn.BackColor = System.Drawing.Color.Blue;
-            this.startBtn.Location = new System.Drawing.Point(340, 216);
+            this.startBtn.Location = new System.Drawing.Point(261, 216);
             this.startBtn.Name = "startBtn";
             this.startBtn.Size = new System.Drawing.Size(75, 23);
             this.startBtn.TabIndex = 6;
@@ -338,11 +341,28 @@ namespace sm
             this.checkStatusTimer.Interval = 400;
             this.checkStatusTimer.Tick += new System.EventHandler(this.checkStatusTimer_Tick);
             // 
+            // QueryBtn
+            // 
+            this.QueryBtn.Location = new System.Drawing.Point(421, 216);
+            this.QueryBtn.Name = "QueryBtn";
+            this.QueryBtn.Size = new System.Drawing.Size(75, 23);
+            this.QueryBtn.TabIndex = 7;
+            this.QueryBtn.Text = "查询分析";
+            this.QueryBtn.UseVisualStyleBackColor = true;
+            this.QueryBtn.Click += new System.EventHandler(this.QueryBtn_Click);
+            // 
+            // szLabel
+            // 
+            this.szLabel.Name = "szLabel";
+            this.szLabel.Size = new System.Drawing.Size(55, 17);
+            this.szLabel.Text = "szStatus";
+            // 
             // MForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 261);
+            this.Controls.Add(this.QueryBtn);
             this.Controls.Add(this.startBtn);
             this.Controls.Add(this.stopBtn);
             this.Controls.Add(this.statusLabel);
@@ -351,9 +371,10 @@ namespace sm
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(300, 400);
-            this.MaximumSize = new System.Drawing.Size(600, 400);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(541, 300);
             this.Name = "MForm";
-            this.Text = "咕咕鸟v0.2 316710846@qq.com";
+            this.Text = "咕咕鸟v0.3";
             this.MinimumSizeChanged += new System.EventHandler(this.delBtn_Click);
             this.Deactivate += new System.EventHandler(this.MForm_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MForm_FormClosing);
@@ -401,6 +422,8 @@ namespace sm
         private System.Windows.Forms.DataGridViewTextBoxColumn StockNum;
         private System.Windows.Forms.CheckBox AutoStopCheckBox;
         private System.Windows.Forms.Timer checkStatusTimer;
+        private System.Windows.Forms.Button QueryBtn;
+        private System.Windows.Forms.ToolStripStatusLabel szLabel;
     }
 }
 
