@@ -23,7 +23,7 @@ namespace sm
             br.Dock = DockStyle.Fill;
             string url = "http://guba.eastmoney.com/list," + Common.current_code + ".html?from=BaiduAladdin";
             br.Navigate(url);
-            br.AllowNewWindows = true;
+            //br.AllowNewWindows = true;
             //br.UseDefaultContextMenu = false;
             this.Controls.Add(br);
             
