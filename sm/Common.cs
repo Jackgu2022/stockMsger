@@ -9,5 +9,6 @@ namespace sm
     class Common
     {
         public static string current_code = "";
+        public static DateTime start_dt;
     }
 }

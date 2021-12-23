@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ForumBtn = new System.Windows.Forms.Button();
             this.DataQueryBtn = new System.Windows.Forms.Button();
             this.stopDtPick = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,6 +39,7 @@
             this.CodeCombox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.queryDataPager = new Fhzy.WinForm.Pager.Pager();
             this.HisDV = new System.Windows.Forms.DataGridView();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Buy1Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +57,7 @@
             this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ForumBtn = new System.Windows.Forms.Button();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HisDV)).BeginInit();
@@ -76,6 +79,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询条件";
+            // 
+            // ForumBtn
+            // 
+            this.ForumBtn.Location = new System.Drawing.Point(1122, 21);
+            this.ForumBtn.Name = "ForumBtn";
+            this.ForumBtn.Size = new System.Drawing.Size(75, 23);
+            this.ForumBtn.TabIndex = 7;
+            this.ForumBtn.Text = "论坛小道";
+            this.ForumBtn.UseVisualStyleBackColor = true;
+            this.ForumBtn.Click += new System.EventHandler(this.ForumBtn_Click);
             // 
             // DataQueryBtn
             // 
@@ -139,6 +152,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.queryDataPager);
             this.groupBox2.Controls.Add(this.HisDV);
             this.groupBox2.Location = new System.Drawing.Point(15, 75);
             this.groupBox2.Name = "groupBox2";
@@ -147,8 +161,21 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "历史数据";
             // 
+            // queryDataPager
+            // 
+            this.queryDataPager.Location = new System.Drawing.Point(7, 678);
+            this.queryDataPager.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.queryDataPager.Name = "queryDataPager";
+            this.queryDataPager.PageSize = 30;
+            this.queryDataPager.RecordCount = 10000;
+            this.queryDataPager.Size = new System.Drawing.Size(1316, 26);
+            this.queryDataPager.TabIndex = 1;
+            this.queryDataPager.PageIndexChanged += new Fhzy.WinForm.Pager.Pager.EventHandler(this.queryDataPager_PageIndexChanged);
+            // 
             // HisDV
             // 
+            this.HisDV.AllowUserToAddRows = false;
+            this.HisDV.AllowUserToDeleteRows = false;
             this.HisDV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.HisDV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Time,
@@ -167,10 +194,11 @@
             this.TotalPrice,
             this.TotalQty,
             this.Code});
-            this.HisDV.Location = new System.Drawing.Point(6, 20);
+            this.HisDV.Location = new System.Drawing.Point(6, 13);
             this.HisDV.Name = "HisDV";
+            this.HisDV.ReadOnly = true;
             this.HisDV.RowTemplate.Height = 23;
-            this.HisDV.Size = new System.Drawing.Size(1321, 682);
+            this.HisDV.Size = new System.Drawing.Size(1322, 663);
             this.HisDV.TabIndex = 0;
             // 
             // Time
@@ -285,15 +313,10 @@
             this.Code.Name = "Code";
             this.Code.Width = 80;
             // 
-            // ForumBtn
+            // notifyIcon1
             // 
-            this.ForumBtn.Location = new System.Drawing.Point(1122, 21);
-            this.ForumBtn.Name = "ForumBtn";
-            this.ForumBtn.Size = new System.Drawing.Size(75, 23);
-            this.ForumBtn.TabIndex = 7;
-            this.ForumBtn.Text = "论坛小道";
-            this.ForumBtn.UseVisualStyleBackColor = true;
-            this.ForumBtn.Click += new System.EventHandler(this.ForumBtn_Click);
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
             // 
             // Form2
             // 
@@ -346,5 +369,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Code;
         private System.Windows.Forms.Button ForumBtn;
+        private Fhzy.WinForm.Pager.Pager queryDataPager;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

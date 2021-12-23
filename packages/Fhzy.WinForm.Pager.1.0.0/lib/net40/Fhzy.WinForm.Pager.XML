@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Fhzy.WinForm.Pager</name>
+    </assembly>
+    <members>
+        <member name="T:Fhzy.WinForm.Pager.Pager">
+            <summary>
+            WinForm用户控件分页插件
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Pager.BtnTextFirst">
+            <summary>
+            自动以属性，首页
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Pager.BtnTextPrevous">
+            <summary>
+            自定义属性，上一页
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Pager.BtnTextNext">
+            <summary>
+            自定义属性，下一页
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Pager.BtnTextLast">
+            <summary>
+            自定义属性，末页
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Pager.DisplayStyle">
+            <summary>
+            自定义属性，显示类型：图片、文字、图片及文字
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Pager.JumpText">
+            <summary>
+            自定义属性，挑战
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Pager.PageIndex">
+            <summary>
+            自定义属性，当前显示的页数
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Pager.PageSize">
+            <summary>
+            自定义属性，每页显示的记录数
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Pager.RecordCount">
+            <summary>
+            自定义属性，要分页的总记录数
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Pager.TextImageRalitions">
+            <summary>
+            自定义属性，图片和文字显示相对位置
+            </summary>
+        </member>
+        <member name="T:Fhzy.WinForm.Pager.Pager.DisplayStyleEnum">
+            <summary>
+            显示类型
+            </summary>
+        </member>
+        <member name="F:Fhzy.WinForm.Pager.Pager.DisplayStyleEnum.图片">
+            <summary>
+            图片
+            </summary>
+        </member>
+        <member name="F:Fhzy.WinForm.Pager.Pager.DisplayStyleEnum.文字">
+            <summary>
+            文字
+            </summary>
+        </member>
+        <member name="F:Fhzy.WinForm.Pager.Pager.DisplayStyleEnum.图片及文字">
+            <summary>
+            图片及文字
+            </summary>
+        </member>
+        <member name="T:Fhzy.WinForm.Pager.Pager.TextImageRalitionEnum">
+            <summary>
+            图片和文字的相对位置
+            </summary>
+        </member>
+        <member name="F:Fhzy.WinForm.Pager.Pager.TextImageRalitionEnum.图片显示在文字上方">
+            <summary>
+            图片显示在文字上方
+            </summary>
+        </member>
+        <member name="F:Fhzy.WinForm.Pager.Pager.TextImageRalitionEnum.图片显示在文字下方">
+            <summary>
+            图片显示在文字下方
+            </summary>
+        </member>
+        <member name="F:Fhzy.WinForm.Pager.Pager.TextImageRalitionEnum.图片显示在文字前方">
+            <summary>
+            图片显示在文字前方
+            </summary>
+        </member>
+        <member name="F:Fhzy.WinForm.Pager.Pager.TextImageRalitionEnum.图片显示在文字后方">
+            <summary>
+            图片显示在文字后方
+            </summary>
+        </member>
+        <member name="T:Fhzy.WinForm.Pager.Pager.EventHandler">
+            <summary>
+            自定义事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:Fhzy.WinForm.Pager.Pager.PageIndexChanged">
+            <summary>
+            自定义事件,更改页面索引事件
+            </summary>
+        </member>
+        <member name="M:Fhzy.WinForm.Pager.Pager.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Fhzy.WinForm.Pager.Pager.SetDisplayStyle">
+            <summary>
+            重置控件按钮样式
+            </summary>
+        </member>
+        <member name="M:Fhzy.WinForm.Pager.Pager.SetLabelLocation">
+            <summary>
+            重置控件位置
+            </summary>
+        </member>
+        <member name="M:Fhzy.WinForm.Pager.Pager.GetPageCount(System.Int32,System.Int32)">
+            <summary>
+            获取页数
+            </summary>
+            <param name="RecordCounts">总共记录数</param>
+            <param name="PageSizes">每页显示记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Fhzy.WinForm.Pager.Pager.SetBtnEnabled">
+            <summary>
+            设置按钮是否禁用
+            </summary>
+        </member>
+        <member name="F:Fhzy.WinForm.Pager.Pager.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Fhzy.WinForm.Pager.Pager.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Fhzy.WinForm.Pager.Pager.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:Fhzy.WinForm.Pager.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Properties.Resources.first">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Properties.Resources.firstdisable">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Properties.Resources.last">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Properties.Resources.lastdisable">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Properties.Resources.next">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Properties.Resources.nextdisable">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Properties.Resources.pager">
+            <summary>
+              查找类似于 (Icon) 的 System.Drawing.Icon 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Properties.Resources.prev">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:Fhzy.WinForm.Pager.Properties.Resources.prevdisable">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+    </members>
+</doc>

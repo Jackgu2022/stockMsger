@@ -87,6 +87,7 @@ namespace sm
         {
             //判断是否是节假日
             String today = DateTime.Now.Date.ToString("yyyy-MM-dd");
+            Common.start_dt = DateTime.Now;
             string url = "https://timor.tech/api/holiday/info/" + today;
            
             HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(url);
@@ -601,6 +602,8 @@ namespace sm
             if (AutoStopCheckBox.Checked)
             {
                 DateTime currentTime = DateTime.Now;
+                int min_gap = (currentTime - Common.start_dt).Seconds;
+                Console.WriteLine(min_gap);
                 int hours = currentTime.Hour;
                 int minutes = currentTime.Minute;
                 //int weekday = Convert.ToInt16(DateTime.Now.DayOfWeek);
@@ -613,7 +616,7 @@ namespace sm
                     statusStrip.BackColor = Color.LightGray;
                     statusLabel.Text = "已停止";
                 }
-                else if (hours >= 9  && minutes >=15 && !is_holiday) {
+                else if (hours >= 9  && minutes >=15  && !is_holiday && min_gap >15) {
                     if (stop_flag) {
                         //自动启动后台
                         stop_flag = false;

@@ -1,0 +1,790 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gobln.Pager</name>
+    </assembly>
+    <members>
+        <member name="T:Gobln.Pager.IEnumerableExtensions">
+            <summary>
+            Extensions for IEnumerable
+            </summary>
+        </member>
+        <member name="M:Gobln.Pager.IEnumerableExtensions.ToPage``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Converts IEnumerable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IEnumerableExtensions.ToPage``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)">
+            <summary>
+            Converts IEnumerable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pageIndex">Index of page</param>
+            <param name="pageSize">Size of page</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IEnumerableExtensions.ToPage``1(System.Collections.Generic.IEnumerable{``0},Gobln.Pager.IPagerFilter)">
+            <summary>
+            Converts IEnumerable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pagerFilter"><see cref="T:Gobln.Pager.IPagerFilter"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IEnumerableExtensions.ToPage``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Converts IEnumerable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pageIndex">Index of page</param>
+            <param name="pageSize">Size of page</param>
+            <param name="itemCount">Total item count of IEnumerable</param>
+            <param name="prePaged">Is the IEnumerable already prepaged. If so the IEnumerable will not be paged anymore.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IEnumerableExtensions.ToPage``1(System.Collections.Generic.IEnumerable{``0},Gobln.Pager.IPagerFilter,System.Int32,System.Boolean)">
+            <summary>
+            Converts IEnumerable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pagerFilter"><see cref="T:Gobln.Pager.IPagerFilter"/></param>
+            <param name="itemCount">Total item count of IEnumerable</param>
+            <param name="prePaged">Is the IEnumerable already prepaged. If so the IEnumerable will not be paged anymore.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IEnumerableExtensions.ToPagedList``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Convert IEnumerable to a PagedList
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IEnumerableExtensions.ToPagedList``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Convert IEnumerable to a PagedList
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IEnumerableExtensions.ToPageAsync``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Converts asynchronous IEnumerable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IEnumerableExtensions.ToPageAsync``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)">
+            <summary>
+            Converts asynchronous IEnumerable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pageIndex">Index of page</param>
+            <param name="pageSize">Size of page</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IEnumerableExtensions.ToPageAsync``1(System.Collections.Generic.IEnumerable{``0},Gobln.Pager.IPagerFilter)">
+            <summary>
+            Converts asynchronous IEnumerable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pagerFilter"><see cref="T:Gobln.Pager.IPagerFilter"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IEnumerableExtensions.ToPageAsync``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Converts asynchronous IEnumerable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pageIndex">Index of page</param>
+            <param name="pageSize">Size of page</param>
+            <param name="itemCount">Total item count of IEnumerable</param>
+            <param name="prePaged">Is the IEnumerable already prepaged. If so the IEnumerable will not be paged anymore.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IEnumerableExtensions.ToPageAsync``1(System.Collections.Generic.IEnumerable{``0},Gobln.Pager.IPagerFilter,System.Int32,System.Boolean)">
+            <summary>
+            Converts asynchronous IEnumerable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pagerFilter"><see cref="T:Gobln.Pager.IPagerFilter"/></param>
+            <param name="itemCount">Total item count of IEnumerable</param>
+            <param name="prePaged">Is the IEnumerable already prepaged. If so the IEnumerable will not be paged anymore.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IEnumerableExtensions.ToPagedListAsync``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Convert asynchronous IEnumerable to a PagedList
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IEnumerableExtensions.ToPagedListAsync``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Convert asynchronous IEnumerable to a PagedList
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Gobln.Pager.IQueryableExtensions">
+            <summary>
+            Extensions for IQueryable
+            </summary>
+        </member>
+        <member name="M:Gobln.Pager.IQueryableExtensions.ToPage``1(System.Linq.IQueryable{``0})">
+            <summary>
+            Converts IQueryable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IQueryableExtensions.ToPage``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+            <summary>
+            Converts IQueryable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pageIndex">Index of page</param>
+            <param name="pageSize">Size of page</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IQueryableExtensions.ToPage``1(System.Linq.IQueryable{``0},Gobln.Pager.IPagerFilter)">
+            <summary>
+            Converts IQueryable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pagerFilter"><see cref="T:Gobln.Pager.IPagerFilter"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IQueryableExtensions.ToPage``1(System.Linq.IQueryable{``0},System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Converts IQueryable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pageIndex">Index of page</param>
+            <param name="pageSize">Size of page</param>
+            <param name="itemCount">Total item count of IQueryable</param>
+            <param name="prePaged">Is the IQueryable already prepaged. If so the IQueryable will not be paged anymore.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IQueryableExtensions.ToPage``1(System.Linq.IQueryable{``0},Gobln.Pager.IPagerFilter,System.Int32,System.Boolean)">
+            <summary>
+            Converts IQueryable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pagerFilter"><see cref="T:Gobln.Pager.IPagerFilter"/></param>
+            <param name="itemCount">Total item count of IQueryable</param>
+            <param name="prePaged">Is the IQueryable already prepaged. If so the IQueryable will not be paged anymore.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IQueryableExtensions.ToPagedList``1(System.Linq.IQueryable{``0})">
+            <summary>
+            Convert IQueryable to a PagedList.
+            Warning: This will execute the entire query and load the results in memory!
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IQueryableExtensions.ToPagedList``1(System.Linq.IQueryable{``0},System.Int32)">
+            <summary>
+            Convert IQueryable to a PagedList
+            Warning: This will execute the entire query and load the results in memory!
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IQueryableExtensions.ToPageAsync``1(System.Linq.IQueryable{``0})">
+            <summary>
+            Converts asynchronous IQueryable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IQueryableExtensions.ToPageAsync``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+            <summary>
+            Converts asynchronous IQueryable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pageIndex">Index of page</param>
+            <param name="pageSize">Size of page</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IQueryableExtensions.ToPageAsync``1(System.Linq.IQueryable{``0},Gobln.Pager.IPagerFilter)">
+            <summary>
+            Converts asynchronous IQueryable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pagerFilter"><see cref="T:Gobln.Pager.IPagerFilter"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IQueryableExtensions.ToPageAsync``1(System.Linq.IQueryable{``0},System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Converts asynchronous IQueryable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pageIndex">Index of page</param>
+            <param name="pageSize">Size of page</param>
+            <param name="itemCount">Total item count of IQueryable</param>
+            <param name="prePaged">Is the IQueryable already prepaged. If so the IQueryable will not be paged anymore.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IQueryableExtensions.ToPageAsync``1(System.Linq.IQueryable{``0},Gobln.Pager.IPagerFilter,System.Int32,System.Boolean)">
+            <summary>
+            Converts asynchronous IQueryable to a Page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pagerFilter"><see cref="T:Gobln.Pager.IPagerFilter"/></param>
+            <param name="itemCount">Total item count of IQueryable</param>
+            <param name="prePaged">Is the IQueryable already prepaged. If so the IQueryable will not be paged anymore.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IQueryableExtensions.ToPagedListAsync``1(System.Linq.IQueryable{``0})">
+            <summary>
+            Convert asynchronous IQueryable to a PagedList.
+            Warning: This will execute the entire query and load the results in memory!
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IQueryableExtensions.ToPagedListAsync``1(System.Linq.IQueryable{``0},System.Int32)">
+            <summary>
+            Convert asynchronous IQueryable to a PagedList
+            Warning: This will execute the entire query and load the results in memory!
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.Calculate.TotalPageCount(System.Int32,System.Int32)">
+            <summary>
+            Calculate the total page count
+            </summary>
+            <param name="totalItems"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.Calculate.SkipIndex(System.Int32,System.Int32)">
+            <summary>
+            Calculate the skip index
+            </summary>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.Calculate.ValidPageIndex(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Caclulate if the pageindex will overflow or underflow the current page
+            Can never be smaller then 1
+            </summary>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="itemCount"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Gobln.Pager.IPage`1">
+            <summary>
+            Interface Page<typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Gobln.Pager.IPage">
+            <summary>
+            Interface Page
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.IPage.CurrentPageIndex">
+            <summary>
+            The index of the current page in the original list
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.IPage.PageSize">
+            <summary>
+            The size of the page
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.IPage.TotalItemCount">
+            <summary>
+            Total amount of items in the original list
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.IPage.TotalPageCount">
+            <summary>
+            Total amount of pages in the original list
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.IPage.HasPaging">
+            <summary>
+            Is paging available (more than one page in the original list)
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.IPage.IsEmpty">
+            <summary>
+            Does the page contain any elements
+            </summary>
+        </member>
+        <member name="T:Gobln.Pager.IPagedList`1">
+            <summary>
+            Interface IPagedList<typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Gobln.Pager.IPagedList`1.GetCurrentPage">
+            <summary>
+            Retrieves the currently active Page
+            </summary>
+            <returns><see cref="T:Gobln.Pager.Page`1"/></returns>
+        </member>
+        <member name="M:Gobln.Pager.IPagedList`1.GetPage(System.Int32)">
+            <summary>
+            Retrieves the Page at the given index
+            </summary>
+            <param name="pageIndex">Index of the requested Page</param>
+            <returns><see cref="T:Gobln.Pager.Page`1"/></returns>
+        </member>
+        <member name="M:Gobln.Pager.IPagedList`1.GetNextPage">
+            <summary>
+            Loads the next Page if possible and returns it.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IPagedList`1.GetPreviousPage">
+            <summary>
+            Loads the previous Page if possible and returns it.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IPagedList`1.PeakNextPage">
+            <summary>
+            Returns the next Page if possible without loading it (if the active page is the last Page, it will return the active Page).
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IPagedList`1.PeakPreviousPage">
+            <summary>
+            Returns the previous Page if possible without loading it (if the active page is the first Page, it will return the active Page).
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.IPagedList`1.ToList">
+            <summary>
+            Copies the elements of the PagedList to a new List.
+            </summary>
+            <returns>An List containing copies of the elements of the PagedList.</returns>
+        </member>
+        <member name="M:Gobln.Pager.IPagedList`1.ToArray">
+            <summary>
+            Copies the elements of the PagedList to a new array.
+            </summary>
+            <returns>An array containing copies of the elements of the PagedList.</returns>
+        </member>
+        <member name="T:Gobln.Pager.IPagedList">
+            <summary>
+            Interface IPagedList
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.IPagedList.CurrentPageIndex">
+            <summary>
+            The current page index
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.IPagedList.PageSize">
+            <summary>
+            The amount of items per page
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.IPagedList.PageCount">
+            <summary>
+            The total page count
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.IPagedList.HasNextPage">
+            <summary>
+            Check if a next page exists
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.IPagedList.HasPreviousPage">
+            <summary>
+            Check if a previous page exist
+            </summary>
+        </member>
+        <member name="T:Gobln.Pager.IPagerFilter">
+            <summary>
+            IPagerFilter
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.IPagerFilter.PageIndex">
+            <summary>
+            The index of the page
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.IPagerFilter.PageSize">
+            <summary>
+            The size of the page
+            </summary>
+        </member>
+        <member name="T:Gobln.Pager.Page`1">
+            <summary>
+            Page Object
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Gobln.Pager.Page`1.CurrentPageIndex">
+            <summary>
+            The index of the current page in the original list
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.Page`1.PageSize">
+            <summary>
+            The size of the page
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.Page`1.TotalItemCount">
+            <summary>
+            Total amount of items in the original list
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.Page`1.TotalPageCount">
+            <summary>
+            Total amount of pages in the original list
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.Page`1.HasPaging">
+            <summary>
+            Is paging avaible (more than one page in the original list)
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.Page`1.IsEmpty">
+            <summary>
+            Does the page contain any elements
+            </summary>
+        </member>
+        <member name="M:Gobln.Pager.Page`1.#ctor">
+            <summary>
+            Creates an empty page
+            </summary>
+        </member>
+        <member name="M:Gobln.Pager.Page`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Converts a collection to a single page.
+            <param name="source">the elements of the current page</param>
+            </summary>
+        </member>
+        <member name="M:Gobln.Pager.Page`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Converts a collection to a specific Page
+            </summary>
+            <param name="source">the elements of the current page</param>
+            <param name="pageIndex">The currently selected page in the original list</param>
+            <param name="pageSize">Size of an individual page</param>
+            <param name="itemCount">Total item count in the original list</param>
+        </member>
+        <member name="M:Gobln.Pager.Page`1.#ctor(System.Collections.Generic.IEnumerable{`0},Gobln.Pager.PageDefinition)">
+            <summary>
+            Converts a collection to a specific Page
+            </summary>
+            <param name="source">the elements of the current page</param>
+            <param name="definitions">the definition of the current page and its position in the original list</param>
+        </member>
+        <member name="M:Gobln.Pager.Page`1.FromEnumerable(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Converts a collection to a single page.
+            <param name="source">the elements of the current page</param>
+            </summary>
+        </member>
+        <member name="M:Gobln.Pager.Page`1.FromEnumerable(System.Collections.Generic.IEnumerable{`0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Converts a collection to a specific Page
+            </summary>
+            <param name="source">the elements of the current page</param>
+            <param name="pageIndex">The currently selected page in the original list</param>
+            <param name="pageSize">Size of an individual page</param>
+            <param name="itemCount">Total item count in the original list</param>
+        </member>
+        <member name="M:Gobln.Pager.Page`1.FromEnumerable(System.Collections.Generic.IEnumerable{`0},Gobln.Pager.PageDefinition)">
+            <summary>
+            Converts a collection to a specific Page
+            </summary>
+            <param name="source">the elements of the current page</param>
+            <param name="definitions">the definition of the current page and its position in the original list</param>
+        </member>
+        <member name="M:Gobln.Pager.Page`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the System.Collections.Generic.List.
+            </summary>
+            <returns>A System.Collections.Generic.List.Enumerator for the Page.</returns>
+        </member>
+        <member name="M:Gobln.Pager.Page`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the System.Collections.Generic.List.
+            </summary>
+            <returns>A System.Collections.Generic.List.Enumerator for the Page.</returns>
+        </member>
+        <member name="T:Gobln.Pager.PagedList`1">
+            <summary>
+            Represents a strongly typed pagedlist of objects that can be accessed by index.
+            </summary>
+            <typeparam name="T">The type of elements in the list.</typeparam>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.#ctor">
+            <summary>
+            Initializes a new empty instance of the Gobln.Pager.PagedList class with default initial page size.
+            </summary>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.#ctor(System.Int32)">
+            <summary>
+            Initializes a new empty instance of the Gobln.Pager.PagedList class with given initial page size.
+            </summary>
+            <param name="pageSize">The number of elements displayed per page</param>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the Gobln.Pager.PagedList class from the given list with the default page size.
+            </summary>
+            <param name="collection">The source list to paginate</param>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)">
+            <summary>
+            Initializes a new instance of the Gobln.Pager.PagedList class that contains elements copied from the specified collection and has sufficient capacity to accommodate the number of elements copied.
+            And where the pageSize can be defined.
+            </summary>
+            <param name="collection">The collection whose elements are copied to the new pageList.</param>
+            <param name="pageSize">The size that will be displayed on the page.</param>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.FromEnumerable(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the Gobln.Pager.PagedList class from the given list with the default page size.
+            </summary>
+            <param name="collection">The source list to paginate</param>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.FromEnumerable(System.Collections.Generic.IEnumerable{`0},System.Int32)">
+            <summary>
+            Initializes a new instance of the Gobln.Pager.PagedList class from the given list with the given page size.
+            </summary>
+            <param name="collection">The source list to paginate</param>
+            <param name="pageSize">The number of elements displayed per page</param>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the Gobln.Pager.PagedList.
+            </summary>
+            <returns>A Gobln.Pager.PagedList.Enumerator for the Gobln.Pager.PagedList.</returns>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the Gobln.Pager.PagedList.
+            </summary>
+            <returns>A Gobln.Pager.PagedList.Enumerator for the Gobln.Pager.PagedList.</returns>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.Add(`0)">
+            <summary>
+            Adds an object to the end of the Gobln.Pager.PagedList.
+            </summary>
+            <param name="item">The object to be added to the end of the Gobln.Pager.PagedList. The value can be null for reference types.</param>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.Clear">
+            <summary>
+            Removes all elements from the Gobln.Pager.PagedList.
+            </summary>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.Contains(`0)">
+            <summary>
+            Determines whether an element is in the Gobln.Pager.PagedList.
+            </summary>
+            <param name="item">The object to locate in the Gobln.Pager.PagedList. The value can be null for reference types.</param>
+            <returns>true if item is found in the Gobln.Pager.PagedList; otherwise, false.</returns>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the entire Gobln.Pager.PagedList to a compatible one-dimensional array, starting at the specified index of the target array.
+            </summary>
+            <param name="array">The one-dimensional System.Array that is the destination of the elements copied from Gobln.Pager.PagedList. The System.Array must have zero-based indexing.</param>
+            <param name="arrayIndex">The zero-based index in array at which copying begins.</param>
+            <exception cref="T:System.ArgumentNullException">array is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">arrayIndex is less than 0.</exception>
+            <exception cref="T:System.ArgumentException">The number of elements in the source Gobln.Pager.PagedList is greater than the available space from arrayIndex to the end of the destination array.</exception>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.Remove(`0)">
+            <summary>
+            Removes the first occurrence of a specific object from the Gobln.Pager.PagedList.
+            </summary>
+            <param name="item">The object to remove from the Gobln.Pager.PagedList. The value can be null for reference types.</param>
+            <returns>true if item is successfully removed; otherwise, false. This method also returns false if item was not found in the Gobln.Pager.PagedList.</returns>
+        </member>
+        <member name="P:Gobln.Pager.PagedList`1.Count">
+            <summary>
+            Gets the number of elements actually contained in the Gobln.Pager.PagedList.
+            </summary>
+            <returns>The number of elements actually contained in the Gobln.Pager.PagedList.</returns>
+        </member>
+        <member name="P:Gobln.Pager.PagedList`1.IsReadOnly">
+            <summary>
+            Is the Gobln.Pager.PagedList readonly
+            </summary>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.IndexOf(`0)">
+            <summary>
+            Searches for the specified object and returns the zero-based index of the first occurrence within the entire Gobln.Pager.PagedList.
+            </summary>
+            <param name="item">The object to locate in the Gobln.Pager.PagedList. The value can be null for reference types.</param>
+            <returns>The zero-based index of the first occurrence of item within the entire Gobln.Pager.PagedList, if found; otherwise, –1.</returns>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.Insert(System.Int32,`0)">
+            <summary>
+             Inserts an element into the Gobln.Pager.PagedList at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which item should be inserted.</param>
+            <param name="item">The object to insert. The value can be null for reference types.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">index is less than 0.-or-index is greater than Gobln.Pager.PagedList.Count.</exception>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.RemoveAt(System.Int32)">
+            <summary>
+            Removes the element at the specified index of the Gobln.Pager.PagedList.
+            </summary>
+            <param name="index">The zero-based index of the element to remove.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">index is less than 0.-or-index is equal to or greater than Gobln.Pager.PagedList.Count.</exception>
+        </member>
+        <member name="P:Gobln.Pager.PagedList`1.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the element to get or set.</param>
+            <returns>The element at the specified index.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">index is less than 0.-or-index is equal to or greater than Gobln.Pager.PagedList.Count.</exception>
+        </member>
+        <member name="P:Gobln.Pager.PagedList`1.CurrentPageIndex">
+            <summary>
+            The current page index
+            This value can not be lower then 1
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.PagedList`1.PageSize">
+            <summary>
+            The amount of items per page
+            This value can not be lower then 1
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.PagedList`1.PageCount">
+            <summary>
+            The total page count
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.PagedList`1.HasNextPage">
+            <summary>
+            Check if a next page exists
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.PagedList`1.HasPreviousPage">
+            <summary>
+            Check if a previous page exist
+            </summary>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.GetCurrentPage">
+            <summary>
+            Retrieves the currently active <see cref="T:Gobln.Pager.Page`1"/>
+            </summary>
+            <returns><see cref="T:Gobln.Pager.Page`1"/></returns>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.GetPage(System.Int32)">
+            <summary>
+            Retrieves the <see cref="T:Gobln.Pager.Page`1"/> at the given index
+            </summary>
+            <param name="pageIndex">Index of the requested page</param>
+            <returns><see cref="T:Gobln.Pager.Page`1"/></returns>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.GetNextPage">
+            <summary>
+            Loads the next <see cref="T:Gobln.Pager.Page`1"/> if possible and returns it.
+            </summary>
+            <returns><see cref="T:Gobln.Pager.Page`1"/></returns>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.GetPreviousPage">
+            <summary>
+            Loads the previous Page if possible and returns it.
+            </summary>
+            <returns><see cref="T:Gobln.Pager.Page`1"/></returns>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.PeakNextPage">
+            <summary>
+            Returns the next Page if possible without loading it (if the active page is the last page, it will return the active page).
+            </summary>
+            <returns><see cref="T:Gobln.Pager.Page`1"/></returns>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.PeakPreviousPage">
+            <summary>
+            /// Returns the previous Page if possible without loading it (if the active page is the first page, it will return the active page).
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.ToList">
+            <summary>
+            Copies the elements of the <see cref="T:Gobln.Pager.PagedList`1"/> to a new List.
+            </summary>
+            <returns>An List containing copies of the elements of the <see cref="T:Gobln.Pager.PagedList`1"/>.</returns>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.ToArray">
+            <summary>
+            Copies the elements of the <see cref="T:Gobln.Pager.PagedList`1"/> to a new array.
+            </summary>
+            <returns>An array containing copies of the elements of the <see cref="T:Gobln.Pager.PagedList`1"/>.</returns>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.AddRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+             Adds the elements of the specified collection to the end of the Gobln.Pager.PagedList.
+            </summary>
+            <param name="collection">The collection whose elements should be added to the end of the Gobln.Pager.PagedList. The collection itself cannot be null, but it can contain elements that are null, if type T is a reference type.</param>
+            <exception cref="T:System.ArgumentNullException">collection is null.</exception>
+        </member>
+        <member name="M:Gobln.Pager.PagedList`1.AsReadOnly">
+            <summary>
+            Returns a read-only System.Collections.Generic.IList wrapper for the current collection.
+            </summary>
+            <returns>A System.Collections.ObjectModel.ReadOnlyCollection that acts as a read-only wrapper around the current Gobln.Pager.PagedList.</returns>
+        </member>
+        <member name="T:Gobln.Pager.PagerFilter">
+            <summary>
+            PagerFilter
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.PagerFilter.PageIndex">
+            <summary>
+            The index of the page
+            </summary>
+        </member>
+        <member name="P:Gobln.Pager.PagerFilter.PageSize">
+            <summary>
+            The size of the page
+            </summary>
+        </member>
+    </members>
+</doc>

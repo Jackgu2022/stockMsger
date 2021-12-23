@@ -56,13 +56,13 @@ namespace sm
             this.label1 = new System.Windows.Forms.Label();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.szLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabel = new System.Windows.Forms.Label();
             this.stopBtn = new System.Windows.Forms.Button();
             this.startBtn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.checkStatusTimer = new System.Windows.Forms.Timer(this.components);
             this.QueryBtn = new System.Windows.Forms.Button();
-            this.szLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgV)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -188,6 +188,8 @@ namespace sm
             // AutoStopCheckBox
             // 
             this.AutoStopCheckBox.AutoSize = true;
+            this.AutoStopCheckBox.Checked = true;
+            this.AutoStopCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.AutoStopCheckBox.Location = new System.Drawing.Point(10, 61);
             this.AutoStopCheckBox.Name = "AutoStopCheckBox";
             this.AutoStopCheckBox.Size = new System.Drawing.Size(72, 16);
@@ -297,6 +299,12 @@ namespace sm
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(35, 17);
             this.toolStripStatusLabel1.Text = "状态:";
             // 
+            // szLabel
+            // 
+            this.szLabel.Name = "szLabel";
+            this.szLabel.Size = new System.Drawing.Size(55, 17);
+            this.szLabel.Text = "szStatus";
+            // 
             // statusLabel
             // 
             this.statusLabel.AutoSize = true;
@@ -350,12 +358,6 @@ namespace sm
             this.QueryBtn.Text = "查询分析";
             this.QueryBtn.UseVisualStyleBackColor = true;
             this.QueryBtn.Click += new System.EventHandler(this.QueryBtn_Click);
-            // 
-            // szLabel
-            // 
-            this.szLabel.Name = "szLabel";
-            this.szLabel.Size = new System.Drawing.Size(55, 17);
-            this.szLabel.Text = "szStatus";
             // 
             // MForm
             // 

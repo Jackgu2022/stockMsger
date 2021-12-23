@@ -57,3 +57,8 @@ G:\sm\sm\sm\obj\Debug\sm.application
 G:\sm\sm\sm\obj\Debug\sm.csproj.CopyComplete
 G:\sm\sm\sm\obj\Debug\sm.exe
 G:\sm\sm\sm\obj\Debug\sm.pdb
+G:\sm\sm\sm\obj\Debug\sm.csprojAssemblyReference.cache
+G:\sm\sm\sm\bin\Debug\Fhzy.WinForm.Pager.dll
+G:\sm\sm\sm\bin\Debug\Gobln.Pager.dll
+G:\sm\sm\sm\bin\Debug\Fhzy.WinForm.Pager.xml
+G:\sm\sm\sm\bin\Debug\Gobln.Pager.xml
