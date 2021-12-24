@@ -1,6 +1,6 @@
 # stockMsger
 新增修改
-    
+    21-12-24  新增历史交易数据图表初级功能，移除论坛小道功能
     21-12-23  新增历史交易数据分页功能
     
 功能说明：
@@ -24,10 +24,7 @@
 
 安装问题：
    打包好的安装已放入release目录
-   安装好 需要查看股吧小道信息的 需要copy一下 release\Application Files\sm_1_0_0_33 下的所有文件到到程序安装目录
-       win10 默认安装路径（实际情况可能有所不同） C:\Users\Foo\AppData\Local\Apps\2.0\HTZAYOMH.Z90\ZJ4BP2VE.A3X\smxxxx\ 下
-
-
-
+   仅在win10测试安装没有问题  其他windows版本未测试
+  
 我的计划：
     1，增加数据分析图表 用于股票分析。
