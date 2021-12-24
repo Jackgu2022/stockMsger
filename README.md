@@ -28,7 +28,7 @@
    打包好的安装已放入release目录
    仅在win10测试安装没有问题  其他windows版本未测试
 工具截图
-  ![avatar](https://github.com/Jackgu2022/stockMsger/blob/main/sm/Properties/last.png)
+  ![avatar](https://github.com/Jackgu2022/stockMsger/blob/main/sm/Properties/ui1.png)
   
 我的计划：
     1，增加数据分析图表 用于股票分析。
