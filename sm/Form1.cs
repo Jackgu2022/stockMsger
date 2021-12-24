@@ -603,21 +603,23 @@ namespace sm
             {
                 DateTime currentTime = DateTime.Now;
                 int min_gap = (currentTime - Common.start_dt).Seconds;
-                Console.WriteLine(min_gap);
-                int hours = currentTime.Hour;
-                int minutes = currentTime.Minute;
+                
+                string now_str = DateTime.Now.ToString("HH:mm");
+                Console.WriteLine(now_str);
                 //int weekday = Convert.ToInt16(DateTime.Now.DayOfWeek);
-               
-                if (hours >= 15 )
+
+                if (String.Compare(now_str, "09:15") == -1 || String.Compare(now_str, "15:00") == 1 || (String.Compare(now_str, "11:30") == 1 && String.Compare(now_str, "13:00") == -1))
                 {  //停止运行
-                    Console.WriteLine("已到下午15点，自动停止监控");
+                    Console.WriteLine("非DEAL时间，自动停止监控");
                     stop_flag = true;
                     sql_locked = false;
                     statusStrip.BackColor = Color.LightGray;
                     statusLabel.Text = "已停止";
                 }
-                else if (hours >= 9  && minutes >=15  && !is_holiday && min_gap >15) {
-                    if (stop_flag) {
+                else if (!is_holiday && min_gap > 15)
+                {
+                    if (stop_flag)
+                    {
                         //自动启动后台
                         stop_flag = false;
                         int i = 0;
@@ -642,6 +644,9 @@ namespace sm
                         statusLabel.Text = "监控中";
 
                     }
+                }
+                else {
+                    Console.WriteLine("节假日休息日无需启动");
                 }
             }
 

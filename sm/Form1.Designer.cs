@@ -376,7 +376,7 @@ namespace sm
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(541, 300);
             this.Name = "MForm";
-            this.Text = "咕咕鸟v0.3";
+            this.Text = "咕咕鸟v0.4 Jack gu";
             this.MinimumSizeChanged += new System.EventHandler(this.delBtn_Click);
             this.Deactivate += new System.EventHandler(this.MForm_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MForm_FormClosing);

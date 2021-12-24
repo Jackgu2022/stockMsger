@@ -62,3 +62,4 @@ G:\sm\sm\sm\bin\Debug\Fhzy.WinForm.Pager.dll
 G:\sm\sm\sm\bin\Debug\Gobln.Pager.dll
 G:\sm\sm\sm\bin\Debug\Fhzy.WinForm.Pager.xml
 G:\sm\sm\sm\bin\Debug\Gobln.Pager.xml
+G:\sm\sm\sm\obj\Debug\sm.ChartForm.resources

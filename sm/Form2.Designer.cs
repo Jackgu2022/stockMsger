@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ForumBtn = new System.Windows.Forms.Button();
+            this.chartBtn = new System.Windows.Forms.Button();
             this.DataQueryBtn = new System.Windows.Forms.Button();
             this.stopDtPick = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.ForumBtn);
+            this.groupBox1.Controls.Add(this.chartBtn);
             this.groupBox1.Controls.Add(this.DataQueryBtn);
             this.groupBox1.Controls.Add(this.stopDtPick);
             this.groupBox1.Controls.Add(this.label3);
@@ -80,15 +80,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询条件";
             // 
-            // ForumBtn
+            // chartBtn
             // 
-            this.ForumBtn.Location = new System.Drawing.Point(1122, 21);
-            this.ForumBtn.Name = "ForumBtn";
-            this.ForumBtn.Size = new System.Drawing.Size(75, 23);
-            this.ForumBtn.TabIndex = 7;
-            this.ForumBtn.Text = "论坛小道";
-            this.ForumBtn.UseVisualStyleBackColor = true;
-            this.ForumBtn.Click += new System.EventHandler(this.ForumBtn_Click);
+            this.chartBtn.Location = new System.Drawing.Point(1125, 19);
+            this.chartBtn.Name = "chartBtn";
+            this.chartBtn.Size = new System.Drawing.Size(75, 23);
+            this.chartBtn.TabIndex = 8;
+            this.chartBtn.Text = "线图观察";
+            this.chartBtn.UseVisualStyleBackColor = true;
+            this.chartBtn.Click += new System.EventHandler(this.chartBtn_Click);
             // 
             // DataQueryBtn
             // 
@@ -96,7 +96,7 @@
             this.DataQueryBtn.Name = "DataQueryBtn";
             this.DataQueryBtn.Size = new System.Drawing.Size(75, 23);
             this.DataQueryBtn.TabIndex = 6;
-            this.DataQueryBtn.Text = "查询";
+            this.DataQueryBtn.Text = "数据查询";
             this.DataQueryBtn.UseVisualStyleBackColor = true;
             this.DataQueryBtn.Click += new System.EventHandler(this.DataQueryBtn_Click);
             // 
@@ -166,7 +166,7 @@
             this.queryDataPager.Location = new System.Drawing.Point(7, 678);
             this.queryDataPager.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.queryDataPager.Name = "queryDataPager";
-            this.queryDataPager.PageSize = 30;
+            this.queryDataPager.PageSize = 200;
             this.queryDataPager.RecordCount = 10000;
             this.queryDataPager.Size = new System.Drawing.Size(1316, 26);
             this.queryDataPager.TabIndex = 1;
@@ -206,6 +206,7 @@
             this.Time.DataPropertyName = "Time";
             this.Time.HeaderText = "Time";
             this.Time.Name = "Time";
+            this.Time.ReadOnly = true;
             this.Time.Width = 140;
             // 
             // Buy1Price
@@ -213,6 +214,7 @@
             this.Buy1Price.DataPropertyName = "Buy1Price";
             this.Buy1Price.HeaderText = "Buy1Price";
             this.Buy1Price.Name = "Buy1Price";
+            this.Buy1Price.ReadOnly = true;
             this.Buy1Price.Width = 80;
             // 
             // Buy1Qty
@@ -220,6 +222,7 @@
             this.Buy1Qty.DataPropertyName = "Buy1Qty";
             this.Buy1Qty.HeaderText = "Buy1Qty";
             this.Buy1Qty.Name = "Buy1Qty";
+            this.Buy1Qty.ReadOnly = true;
             this.Buy1Qty.Width = 80;
             // 
             // Sale1Price
@@ -227,6 +230,7 @@
             this.Sale1Price.DataPropertyName = "Sale1Price";
             this.Sale1Price.HeaderText = "Sale1Price";
             this.Sale1Price.Name = "Sale1Price";
+            this.Sale1Price.ReadOnly = true;
             this.Sale1Price.Width = 80;
             // 
             // Sale1Qty
@@ -234,6 +238,7 @@
             this.Sale1Qty.DataPropertyName = "Sale1Qty";
             this.Sale1Qty.HeaderText = "Sale1Qty";
             this.Sale1Qty.Name = "Sale1Qty";
+            this.Sale1Qty.ReadOnly = true;
             this.Sale1Qty.Width = 80;
             // 
             // Buy2Price
@@ -241,6 +246,7 @@
             this.Buy2Price.DataPropertyName = "Buy2Price";
             this.Buy2Price.HeaderText = "Buy2Price";
             this.Buy2Price.Name = "Buy2Price";
+            this.Buy2Price.ReadOnly = true;
             this.Buy2Price.Width = 80;
             // 
             // Buy2Qty
@@ -248,6 +254,7 @@
             this.Buy2Qty.DataPropertyName = "Buy2Qty";
             this.Buy2Qty.HeaderText = "Buy2Qty";
             this.Buy2Qty.Name = "Buy2Qty";
+            this.Buy2Qty.ReadOnly = true;
             this.Buy2Qty.Width = 80;
             // 
             // Sale2Price
@@ -255,6 +262,7 @@
             this.Sale2Price.DataPropertyName = "Sale2Price";
             this.Sale2Price.HeaderText = "Sale2Price";
             this.Sale2Price.Name = "Sale2Price";
+            this.Sale2Price.ReadOnly = true;
             this.Sale2Price.Width = 80;
             // 
             // Sale2Qty
@@ -262,6 +270,7 @@
             this.Sale2Qty.DataPropertyName = "Sale2Qty";
             this.Sale2Qty.HeaderText = "Sale2Qty";
             this.Sale2Qty.Name = "Sale2Qty";
+            this.Sale2Qty.ReadOnly = true;
             this.Sale2Qty.Width = 80;
             // 
             // Buy5Price
@@ -269,6 +278,7 @@
             this.Buy5Price.DataPropertyName = "Buy5Price";
             this.Buy5Price.HeaderText = "Buy5Price";
             this.Buy5Price.Name = "Buy5Price";
+            this.Buy5Price.ReadOnly = true;
             this.Buy5Price.Width = 80;
             // 
             // Buy5Qty
@@ -276,6 +286,7 @@
             this.Buy5Qty.DataPropertyName = "Buy5Qty";
             this.Buy5Qty.HeaderText = "Buy5Qty";
             this.Buy5Qty.Name = "Buy5Qty";
+            this.Buy5Qty.ReadOnly = true;
             this.Buy5Qty.Width = 80;
             // 
             // Sale5Price
@@ -283,6 +294,7 @@
             this.Sale5Price.DataPropertyName = "Sale5Price";
             this.Sale5Price.HeaderText = "Sale5Price";
             this.Sale5Price.Name = "Sale5Price";
+            this.Sale5Price.ReadOnly = true;
             this.Sale5Price.Width = 80;
             // 
             // Sale5Qty
@@ -290,6 +302,7 @@
             this.Sale5Qty.DataPropertyName = "Sale5Qty";
             this.Sale5Qty.HeaderText = "Sale5Qty";
             this.Sale5Qty.Name = "Sale5Qty";
+            this.Sale5Qty.ReadOnly = true;
             this.Sale5Qty.Width = 80;
             // 
             // TotalPrice
@@ -297,6 +310,7 @@
             this.TotalPrice.DataPropertyName = "TotalPrice";
             this.TotalPrice.HeaderText = "TotalPrice";
             this.TotalPrice.Name = "TotalPrice";
+            this.TotalPrice.ReadOnly = true;
             this.TotalPrice.Width = 80;
             // 
             // TotalQty
@@ -304,6 +318,7 @@
             this.TotalQty.DataPropertyName = "TotalQty";
             this.TotalQty.HeaderText = "TotalQty";
             this.TotalQty.Name = "TotalQty";
+            this.TotalQty.ReadOnly = true;
             this.TotalQty.Width = 80;
             // 
             // Code
@@ -311,6 +326,7 @@
             this.Code.DataPropertyName = "Code";
             this.Code.HeaderText = "Code";
             this.Code.Name = "Code";
+            this.Code.ReadOnly = true;
             this.Code.Width = 80;
             // 
             // notifyIcon1
@@ -368,8 +384,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Code;
-        private System.Windows.Forms.Button ForumBtn;
         private Fhzy.WinForm.Pager.Pager queryDataPager;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Button chartBtn;
     }
 }

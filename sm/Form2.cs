@@ -26,6 +26,7 @@ namespace sm
         {
             Console.WriteLine("form2 loading");
             startDtPick.Value = DateTime.Now.AddDays(-7);
+            stopDtPick.Value = DateTime.Now;
             cn1.Open();
             SQLiteCommand cmd = new SQLiteCommand();
             cmd.Connection = cn1;
@@ -157,15 +158,17 @@ namespace sm
 
         private void ForumBtn_Click(object sender, EventArgs e)
         {
-            Common.current_code = CodeCombox.Text.ToString();
+            
+        }
+        /*
+         Common.current_code = CodeCombox.Text.ToString();
             if (Common.current_code == "") {
                 Common.current_code = "000995";
             }
 
             forumForm ff = new forumForm();
             ff.Show();
-        }
-
+         */
         private void queryDataPager_PageIndexChanged(object sender, EventArgs e)
         {
             string dt1 = startDtPick.Text.ToString();
@@ -177,7 +180,7 @@ namespace sm
             
             //string cnt_sql;
             string query_sql;
-            string now_str = DateTime.Now.ToString("yyyy - MM - dd hh: mm:ss");
+            string now_str = DateTime.Now.ToString("yyyy - MM - dd HH: mm:ss");
             code = code.Trim();
             cn1.Open();
             SQLiteCommand cmd = new SQLiteCommand();
@@ -203,7 +206,21 @@ namespace sm
             cn1.Close();
         }
 
-       
+        private void chartBtn_Click(object sender, EventArgs e)
+        {
+            Common.current_code = CodeCombox.Text;
+            Common.from_dt = startDtPick.Text;
+            Common.to_dt = stopDtPick.Text;
+            Console.WriteLine(Common.from_dt);
+            Console.WriteLine(Common.start_dt);
+            if (Common.current_code == "") {
+                MessageBox.Show("代码为空");
+                return;
+            }
+           
+            ChartForm cf = new ChartForm();
+            cf.Show();
+        }
     }
         
 }
