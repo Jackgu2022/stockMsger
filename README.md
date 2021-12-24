@@ -33,4 +33,5 @@
    ![avatar](https://github.com/Jackgu2022/stockMsger/blob/main/sm/Properties/ui1.png)
   
 我的计划：
-    1，增加数据分析图表 用于股票分析。
+    
+     1，增加数据分析图表 用于股票分析-- onging;
