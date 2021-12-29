@@ -37,7 +37,7 @@ namespace sm
             SQLiteCommand cmd = new SQLiteCommand();
             cmd.Connection = cn2;
            
-            cmd.CommandText = "SELECT acdt,buy1_price,buy1_hands FROM history where code='" + Common.current_code + "' and acdt between '"+ Common.from_dt + "' and '"+ Common.to_dt + "' order by acdt;";
+            cmd.CommandText = "SELECT acdt,buy1_price,buy1_hands FROM history where code='" + Common.current_code + "' and buy1_price >0 and buy1_hands >0 and acdt between '"+ Common.from_dt + "' and '"+ Common.to_dt + "' order by acdt;";
             SQLiteDataReader sr = cmd.ExecuteReader();
 
             while (sr.Read())
@@ -51,7 +51,7 @@ namespace sm
             decimal price_max, price_min;
             int qty_min, qty_max;
             if (dt.Rows.Count > 0) {
-                cmd.CommandText = "SELECT max(buy1_price),min(buy1_price),max(buy1_hands),min(buy1_hands) from history where code='" + Common.current_code + "' and acdt between '" + Common.from_dt + "' and '" + Common.to_dt + "';";
+                cmd.CommandText = "SELECT max(buy1_price),min(buy1_price),max(buy1_hands),min(buy1_hands) from history where code='" + Common.current_code + "' and buy1_price >0 and buy1_hands >0 and acdt between '" + Common.from_dt + "' and '" + Common.to_dt + "';";
                 sr = cmd.ExecuteReader();
                 sr.Read();
                 price_max = sr.GetDecimal(0);

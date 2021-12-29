@@ -12,5 +12,6 @@ namespace sm
         public static DateTime start_dt;
         public static string from_dt;
         public static string to_dt;
+        public static bool monitor_started = false;
     }
 }

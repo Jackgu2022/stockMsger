@@ -221,6 +221,34 @@ namespace sm
             ChartForm cf = new ChartForm();
             cf.Show();
         }
+
+        private void DelBtn_Click(object sender, EventArgs e)
+        {
+            if (!Common.monitor_started)
+            {
+                string code = CodeCombox.Text;
+                if (code == "") {
+                    MessageBox.Show("选择GG代码");
+                    return;
+                }
+                cn1.Open();
+                SQLiteCommand cmd = new SQLiteCommand();
+                cmd.Connection = cn1;
+
+                
+                cmd.CommandText = "delete from history where code ='"+code+"'";
+                cmd.ExecuteNonQuery();
+               
+                cn1.Close();
+                his_dt.Rows.Clear();
+                queryDataPager.RecordCount = 0;
+                queryDataPager.PageIndex = 1;
+            }
+            else {
+                MessageBox.Show("清空历史需要停止监控");
+                return;
+            }
+        }
     }
         
 }

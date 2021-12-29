@@ -58,6 +58,7 @@
             this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.DelBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HisDV)).BeginInit();
@@ -65,6 +66,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.DelBtn);
             this.groupBox1.Controls.Add(this.chartBtn);
             this.groupBox1.Controls.Add(this.DataQueryBtn);
             this.groupBox1.Controls.Add(this.stopDtPick);
@@ -334,6 +336,16 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // DelBtn
+            // 
+            this.DelBtn.Location = new System.Drawing.Point(984, 19);
+            this.DelBtn.Name = "DelBtn";
+            this.DelBtn.Size = new System.Drawing.Size(94, 23);
+            this.DelBtn.TabIndex = 9;
+            this.DelBtn.Text = "清除历史数据";
+            this.DelBtn.UseVisualStyleBackColor = true;
+            this.DelBtn.Click += new System.EventHandler(this.DelBtn_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -387,5 +399,6 @@
         private Fhzy.WinForm.Pager.Pager queryDataPager;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Button chartBtn;
+        private System.Windows.Forms.Button DelBtn;
     }
 }

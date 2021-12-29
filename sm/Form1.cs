@@ -472,7 +472,10 @@ namespace sm
                     
                 }
                 Console.WriteLine("sleep 20 seconds");
-                Thread.Sleep(20000);
+                //Thread.Sleep(20000);
+                Random ran = new Random();
+                int RandKey = ran.Next(15000, 25000);
+                Thread.Sleep(RandKey);
 
 
             }
@@ -485,7 +488,13 @@ namespace sm
                 MessageBox.Show("后台监控已启动", "错误提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            if (AutoStopCheckBox.Checked)
+            {
+                MessageBox.Show("请取消自动启停勾选", "错误提示");
+                return;
+            }
             stop_flag = false;
+            Common.monitor_started = true;
             int i = 0;
             string st_code;
             Thread[] ths = new Thread[dt.Rows.Count];
@@ -516,6 +525,7 @@ namespace sm
             sql_locked = false;
             statusStrip.BackColor = Color.LightGray;
             statusLabel.Text = "已停止";
+            Common.monitor_started = false;
         }
 
         private void dgV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -612,6 +622,7 @@ namespace sm
                 {  //停止运行
                     Console.WriteLine("非DEAL时间，自动停止监控");
                     stop_flag = true;
+                    Common.monitor_started = false;
                     sql_locked = false;
                     statusStrip.BackColor = Color.LightGray;
                     statusLabel.Text = "已停止";
@@ -622,6 +633,7 @@ namespace sm
                     {
                         //自动启动后台
                         stop_flag = false;
+                        Common.monitor_started = true;
                         int i = 0;
                         string st_code;
                         Thread[] ths = new Thread[dt.Rows.Count];
